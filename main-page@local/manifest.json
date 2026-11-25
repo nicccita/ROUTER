@@ -1,1 +1,35 @@
-ewogIm1hbmlmZXN0X3ZlcnNpb24iOiAyLAogIm5hbWUiOiAiTWFpbiBQYWdlIiwKICJ2ZXJzaW9uIjogIjEuMCIsCiAiYnJvd3Nlcl9zcGVjaWZpY19zZXR0aW5ncyI6IHsKICAiZ2Vja28iOiB7CiAgICJpZCI6ICJtYWluLXBhZ2VAbG9jYWwiLAogICAic3RyaWN0X21pbl92ZXJzaW9uIjogIjExNS4wIgogIH0KIH0sCiAicGVybWlzc2lvbnMiOiBbCiAgImRvd25sb2FkcyIsCiAgIm5hdGl2ZU1lc3NhZ2luZyIsCiAgIm1lbnVzIiwKICAidGFicyIsCiAgInN0b3JhZ2UiLAogICJub3RpZmljYXRpb25zIgogXSwKICJiYWNrZ3JvdW5kIjogewogICJzY3JpcHRzIjogWwogICAiYmcuanMiCiAgXQogfSwKICJjaHJvbWVfdXJsX292ZXJyaWRlcyI6IHsKICAibmV3dGFiIjogIm5ld3RhYi5odG1sIgogfSwKICJicm93c2VyX2FjdGlvbiI6IHsKICAiZGVmYXVsdF90aXRsZSI6ICJNYWluIFBhZ2UiLAogICJkZWZhdWx0X3BvcHVwIjogInBvcHVwLmh0bWwiLAogICJkZWZhdWx0X2ljb24iOiAiaWNvbi5wbmciCiB9LAogImljb25zIjogewogICI0OCI6ICJpY29uLnBuZyIKIH0KfQ==
+{
+ "manifest_version": 2,
+ "name": "Main Page",
+ "version": "1.0",
+ "browser_specific_settings": {
+  "gecko": {
+   "id": "main-page@local",
+   "strict_min_version": "115.0"
+  }
+ },
+ "permissions": [
+  "downloads",
+  "nativeMessaging",
+  "menus",
+  "tabs",
+  "storage",
+  "notifications"
+ ],
+ "background": {
+  "scripts": [
+   "bg.js"
+  ]
+ },
+ "chrome_url_overrides": {
+  "newtab": "newtab.html"
+ },
+ "browser_action": {
+  "default_title": "Main Page",
+  "default_popup": "popup.html",
+  "default_icon": "icon.png"
+ },
+ "icons": {
+  "48": "icon.png"
+ }
+}
