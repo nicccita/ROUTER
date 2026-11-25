@@ -1,0 +1,65 @@
+﻿<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>Новая вкладка</title>
+<style>
+:root{--bg:#111114;--fg:#e6e6e9;--mut:#8a8a93;--card:#1b1b20;--line:#2a2a31}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,Segoe UI,sans-serif;padding:22px;max-width:1200px;margin:0 auto}
+a{color:inherit;text-decoration:none}
+#search{display:flex;gap:8px;margin-bottom:20px}
+#search input{flex:1;background:var(--card);border:1px solid var(--line);color:var(--fg);padding:10px 14px;border-radius:10px;font-size:15px;outline:none}
+#search input:focus{border-color:#7c4dff}
+#search button{background:#7c4dff;border:0;color:#fff;padding:0 18px;border-radius:10px;cursor:pointer;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.group{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.group h3{font-size:13px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.tiles{display:flex;flex-wrap:wrap;gap:7px}
+.tile{background:#232329;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;cursor:pointer;position:relative;transition:.1s}
+.tile:hover{border-color:#7c4dff;background:#2a2a33}
+.tile .x{display:none;margin-left:6px;color:#ff5c7a;cursor:pointer;font-weight:700}
+body.edit .tile .x{display:inline}
+.add{color:var(--mut);border-style:dashed}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.panel h3{font-size:13px;margin-bottom:8px;color:var(--mut)}
+.qitem{display:flex;justify-content:space-between;gap:6px;padding:4px 0;border-bottom:1px solid var(--line);font-size:13px}
+.qitem a{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.qitem a:hover{color:#9d7bff}
+.qitem .x{color:#ff5c7a;cursor:pointer}
+.empty{color:var(--mut);font-size:12px}
+textarea{width:100%;background:#141418;border:1px solid var(--line);color:var(--fg);border-radius:8px;padding:8px;font:13px/1.4 monospace;resize:vertical;outline:none}
+select{background:#141418;border:1px solid var(--line);color:var(--fg);border-radius:6px;padding:4px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;align-items:center}
+.btn{background:var(--card);border:1px solid var(--line);color:var(--fg);border-radius:8px;padding:7px 12px;cursor:pointer;font-size:13px}
+.btn:hover{border-color:#7c4dff}
+.btn.acc{background:#7c4dff;border-color:#7c4dff;color:#fff}
+#settings{display:none;margin-top:14px}
+#settings.open{display:block}
+.hint{color:var(--mut);font-size:12px;margin-top:6px}
+</style></head><body>
+<form id="search" action="https://yandex.by/search/" method="get" target="_blank">
+<input name="text" placeholder="Поиск в Яндекс…" autofocus autocomplete="off"><button>Найти</button></form>
+<div class="grid" id="groups"></div>
+<div class="row">
+<div class="panel"><h3>👁 Посмотреть</h3><div id="q_watch"></div></div>
+<div class="panel"><h3>🎮 Попробовать</h3><div id="q_try"></div></div>
+<div class="panel"><h3>📖 Почитать</h3><div id="q_read"></div></div>
+<div class="panel"><h3>📝 Заметки <select id="notecat"></select></h3><textarea id="notes" rows="5" placeholder="Пиши сюда — сохраняется само"></textarea></div>
+</div>
+<div class="bar">
+<button class="btn" data-folder="Games">📁 Игры</button>
+<button class="btn" data-folder="AI">📁 AI</button>
+<button class="btn" data-folder="Base">📁 База</button>
+<button class="btn" data-folder="NSFW">📁 NSFW</button>
+<button class="btn acc" id="gallery">🖼 Галерея</button>
+<button class="btn" id="editbtn">✎ Править плитки</button>
+<button class="btn" id="setbtn">⚙ Настройки</button>
+</div>
+<div id="settings" class="panel">
+<h3>Карта сайтов → категория (домен=Категория). NSFW-домены добавь сюда сам.</h3>
+<textarea id="map" rows="8"></textarea>
+<div class="bar"><label>По умолчанию: <select id="defcat"><option>Base</option><option>Games</option><option>AI</option><option>NSFW</option></select></label>
+<button class="btn acc" id="savemap">Сохранить карту</button>
+<button class="btn" id="upd">Обновить yt-dlp</button></div>
+<div class="hint">Формат: site.com=NSFW — по одной строке. Всё, что не в карте, падает в категорию «по умолчанию».</div>
+</div>
+<script src="newtab.js"></script></body></html>

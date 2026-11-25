@@ -1,0 +1,35 @@
+{
+ "manifest_version": 2,
+ "name": "Nikita",
+ "version": "1.0",
+ "browser_specific_settings": {
+  "gecko": {
+   "id": "kirill-router@local",
+   "strict_min_version": "115.0"
+  }
+ },
+ "permissions": [
+  "downloads",
+  "nativeMessaging",
+  "menus",
+  "tabs",
+  "storage",
+  "notifications"
+ ],
+ "background": {
+  "scripts": [
+   "bg.js"
+  ]
+ },
+ "chrome_url_overrides": {
+  "newtab": "newtab.html"
+ },
+ "browser_action": {
+  "default_title": "Nikita",
+  "default_popup": "popup.html",
+  "default_icon": "icon.png"
+ },
+ "icons": {
+  "48": "icon.png"
+ }
+}
